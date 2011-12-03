@@ -12,7 +12,7 @@ After installation the plugin should work seamlessly. You can try it out by purp
 
 For instance, if you meant to type `domains` but left off the s you would see:
 
-    ⌘ heroku aps
+    ⌘ heroku domain
      !    'domain' is not a heroku command.
      !    Perhaps you meant 'domains'.
      !    See 'heroku help' for additional details.
