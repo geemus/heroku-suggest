@@ -18,8 +18,9 @@ module Heroku
           STDERR.puts(" !    Perhaps you meant #{suggestions[0...-1].map {|suggestion| "'#{suggestion}'"}.join(', ')} or '#{suggestions.last}'.")
         end
         STDERR.puts(" !    See 'heroku help' for additional details.")
+      else
+        STDERR.puts(msg)
       end
-      STDERR.puts(msg)
       exit 1
     end
 
