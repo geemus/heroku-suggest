@@ -10,12 +10,15 @@ module Heroku
           distances[distance] ||= []
           distances[distance] << suggestion
         end
-        suggestions = distances[distances.keys.min]
-          STDERR.puts(" !    '#{command}' is not a heroku command.")
-        if suggestions.length == 1
-          STDERR.puts(" !    Perhaps you meant '#{suggestions.first}'.")
-        else
-          STDERR.puts(" !    Perhaps you meant #{suggestions[0...-1].map {|suggestion| "'#{suggestion}'"}.join(', ')} or '#{suggestions.last}'.")
+        STDERR.puts(" !    '#{command}' is not a heroku command.")
+        minimum = distances.keys.min
+        if minimum < 4
+          suggestions = distances[distances.keys.min]
+          if suggestions.length == 1
+            STDERR.puts(" !    Perhaps you meant '#{suggestions.first}'.")
+          else
+            STDERR.puts(" !    Perhaps you meant #{suggestions[0...-1].map {|suggestion| "'#{suggestion}'"}.join(', ')} or '#{suggestions.last}'.")
+          end
         end
         STDERR.puts(" !    See 'heroku help' for additional details.")
       else
