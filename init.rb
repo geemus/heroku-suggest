@@ -1,1 +1,1 @@
-require 'ext/heroku/helpers'
+require 'suggest/heroku/helpers'
