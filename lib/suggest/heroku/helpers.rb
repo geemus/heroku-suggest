@@ -2,7 +2,7 @@ module Heroku
   module Helpers
 
     def error(msg)
-      if msg =~ /(\S*) is not a heroku command. See 'heroku help'./
+      if msg =~ /(\S*) is not a heroku command./
         command = $1
         distances = {}
         (commands.keys + command_aliases.keys).each do |suggestion|
@@ -15,12 +15,12 @@ module Heroku
         if minimum < 4
           suggestions = distances[distances.keys.min]
           if suggestions.length == 1
-            STDERR.puts(" !    Perhaps you meant '#{suggestions.first}'.")
+            STDERR.puts(" !    Perhaps you meant `#{suggestions.first}`.")
           else
-            STDERR.puts(" !    Perhaps you meant #{suggestions[0...-1].map {|suggestion| "'#{suggestion}'"}.join(', ')} or '#{suggestions.last}'.")
+            STDERR.puts(" !    Perhaps you meant #{suggestions[0...-1].map {|suggestion| "`#{suggestion}`"}.join(', ')} or `#{suggestions.last}`.")
           end
         end
-        STDERR.puts(" !    See 'heroku help' for additional details.")
+        STDERR.puts(" !    See `heroku help` for additional details.")
       else
         STDERR.puts(msg)
       end
