@@ -1,5 +1,7 @@
 # Heroku suggest
 
+DEPRECATED: This functionality has been merged directly into the heroku gem.
+
 Suggests commands to you when you type incorrect values in.
 
 ## Installation
